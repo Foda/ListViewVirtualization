@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Application
+    x:Class="WinUIPlayground.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUIPlayground">
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls" />
+            </ResourceDictionary.MergedDictionaries>
+
+
+            <Style x:Key="NoSpacesListViewItemStyle" TargetType="ListViewItem">
+                <Setter Property="Margin" Value="0"/>
+                <Setter Property="MinHeight" Value="0"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            </Style>
+
+            <DataTemplate x:Key="ItemsViewDefaultTemplate">
+                <local:ItemContentControl 
+                    x:Name="ItemContentControl"
+                    FormsContainer="{Binding Symbol}">
+                </local:ItemContentControl>
+            </DataTemplate>
+
+            <Style TargetType="local:ItemContentControl" >
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="local:ItemContentControl">
+                            <ContentPresenter />
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>
